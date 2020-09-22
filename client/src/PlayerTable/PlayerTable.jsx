@@ -1,27 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { fetchPlayersSuccess } from '../appState/actions';
-
+import { fetchPlayers, getPlayers } from '../appState/playersSlice';
 import './PlayerTable.scss';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 
-const getPlayers = (state) => state.playerIds.map((id) => state.players[id]);
-
 const PlayerTable = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    (async function fetchPlayers() {
-      const response = await fetch('http://localhost:3001/players', {
-        headers: {
-          Accept: 'application/json',
-        },
-      });
 
-      const json = await response.json();
-      dispatch(fetchPlayersSuccess(json));
-    })();
+  useEffect(() => {
+    dispatch(fetchPlayers());
   }, [dispatch]);
 
   const players = useSelector(getPlayers);

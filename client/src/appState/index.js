@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
-
-import playerIds from './playerIds';
-import players from './players';
+import players from './playersSlice';
 
 export default combineReducers({
-  playerIds,
   players,
 });

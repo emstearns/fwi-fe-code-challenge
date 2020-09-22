@@ -250,3 +250,10 @@ export const COUNTRIES = {
   QA: 'Qatar',
   MZ: 'Mozambique',
 };
+
+export const LOAD_STATUSES = {
+  Idle: 'Idle',
+  Loading: 'Loading',
+  Success: 'Success',
+  Error: 'Error',
+};
