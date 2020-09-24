@@ -7,6 +7,7 @@
     0 1px 10px 0 rgba($sleeping-panther, 0.12),
     0 2px 4px -1px rgba($sleeping-panther, 0.4);
   display: flex;
+  justify-content: space-between;
   height: 3.5rem;
   position: fixed;
   top: 0;
@@ -20,11 +21,20 @@
     font-weight: 500;
     margin: 0 1rem;
   }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+
+  &__right {
+    margin-right: 1rem;
+  }
 }
 
 .logo {
   height: 3.125rem;
-  margin-left: 1rem;
   position: relative;
   width: 3.125rem;
 
@@ -38,4 +48,8 @@
     position: absolute;
     top: 0;
   }
+}
+
+.add-player-button {
+  margin-right: 1rem;
 }

@@ -2,9 +2,10 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dialog as DialogWrapper } from '@material-ui/core/';
 import { closeDialog } from '../appState/dialogSlice';
+import AddPlayerDialog from './AddPlayerDialog/AddPlayerDialog';
 import './Dialog.scss';
 
-const DIALOG_TYPES = {};
+const DIALOG_TYPES = { AddPlayerDialog };
 
 const Dialog = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,11 @@ const Dialog = () => {
 
   return (
     <DialogWrapper open={visible} onClose={handleClose}>
-      <DialogContent onClose={handleClose} {...dialogProps} />
+      <DialogContent
+        onClose={handleClose}
+        dispatch={dispatch}
+        {...dialogProps}
+      />
     </DialogWrapper>
   );
 };

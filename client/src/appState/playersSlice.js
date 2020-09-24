@@ -20,6 +20,18 @@ export const fetchPlayers = createAsyncThunk('fetchPlayers', async () => {
   return playerData;
 });
 
+export const addPlayer = createAsyncThunk('addPlayer', async (playerData) => {
+  const response = await fetch('http://localhost:3001/players/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(playerData),
+  });
+  const json = await response.json();
+  return json;
+});
+
 const playersSlice = createSlice({
   name: 'players',
   initialState: playersAdapter.getInitialState({
@@ -27,6 +39,12 @@ const playersSlice = createSlice({
   }),
   reducers: {},
   extraReducers: {
+    [addPlayer.fulfilled]: (state, { payload }) => {
+      playersAdapter.upsertOne(state, payload);
+    },
+    [addPlayer.rejected]: (state) => {
+      state.error = 'Failed to add player. Please try again.';
+    },
     [fetchPlayers.pending]: (state) => {
       state.loadStatus = LOAD_STATUSES.Loading;
     },
