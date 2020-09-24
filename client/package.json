@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.7",
     "@testing-library/user-event": "^12.1.0",
+    "formik": "^2.1.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -15,7 +16,8 @@
     "react-scripts": "3.4.1",
     "react-world-flags": "^1.4.0",
     "redux": "^4.0.5",
-    "shallowequal": "^1.1.0"
+    "shallowequal": "^1.1.0",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
