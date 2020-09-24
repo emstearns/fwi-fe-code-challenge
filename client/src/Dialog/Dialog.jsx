@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dialog as DialogWrapper } from '@material-ui/core/';
 import { closeDialog } from '../appState/dialogSlice';
+import './Dialog.scss';
 
 const DIALOG_TYPES = {};
 
