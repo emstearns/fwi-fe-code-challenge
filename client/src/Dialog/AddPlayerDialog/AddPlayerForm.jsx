@@ -46,51 +46,53 @@ const AddPlayerForm = ({ onClose }) => {
     <Formik {...formikConfig}>
       {({ touched, errors, isSubmitting }) => (
         <Form noValidate>
-          <div className="dialog__form">
-            <div className="dialog__form__item">
-              <Field
-                as={FormFieldInput}
-                autoFocus
-                name="name"
-                label="Name"
-                required
-                errors={touched.name ? errors.name : null}
-              />
-            </div>
-            <div className="dialog__form__item">
-              <Field
-                as={FormFieldInput}
-                name="winnings"
-                label="Winnings"
-                required
-                errors={touched.winnings ? errors.winnings : null}
-                type="number"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">$</InputAdornment>
-                  ),
-                }}
-              />
-            </div>
-            <div className="dialog__form__item">
-              <Field
-                name="country"
-                label="Country"
-                required
-                select
-                errors={touched.country ? errors.country : null}
-                as={FormFieldInput}
-              >
-                {countryList}
-              </Field>
-            </div>
-            <div className="dialog__form__item">
-              <Field
-                label="Image Link"
-                name="imageUrl"
-                errors={touched.imageUrl ? errors.imageUrl : null}
-                as={FormFieldInput}
-              />
+          <div className="dialog__body">
+            <div className="dialog__form">
+              <div className="dialog__form__item">
+                <Field
+                  as={FormFieldInput}
+                  autoFocus
+                  name="name"
+                  label="Name"
+                  required
+                  errors={touched.name ? errors.name : null}
+                />
+              </div>
+              <div className="dialog__form__item">
+                <Field
+                  as={FormFieldInput}
+                  name="winnings"
+                  label="Winnings"
+                  required
+                  errors={touched.winnings ? errors.winnings : null}
+                  type="number"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">$</InputAdornment>
+                    ),
+                  }}
+                />
+              </div>
+              <div className="dialog__form__item">
+                <Field
+                  name="country"
+                  label="Country"
+                  required
+                  select
+                  errors={touched.country ? errors.country : null}
+                  as={FormFieldInput}
+                >
+                  {countryList}
+                </Field>
+              </div>
+              <div className="dialog__form__item">
+                <Field
+                  label="Image Link"
+                  name="imageUrl"
+                  errors={touched.imageUrl ? errors.imageUrl : null}
+                  as={FormFieldInput}
+                />
+              </div>
             </div>
           </div>
           <DialogActions className="dialog__footer">
