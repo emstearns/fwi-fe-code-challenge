@@ -3,7 +3,7 @@ import { openDialog } from '../../appState/dialogSlice';
 export const PLAYER_ACTIONS = {
   Edit: {
     title: 'Edit',
-    onClick: (playerId) =>
+    action: (playerId) =>
       openDialog({
         type: 'EditPlayerDialog',
         props: { playerId },
@@ -11,7 +11,7 @@ export const PLAYER_ACTIONS = {
   },
   Delete: {
     title: 'Delete',
-    onClick: (playerId) =>
+    action: (playerId) =>
       openDialog({
         type: 'DeletePlayerDialog',
         props: { playerId },

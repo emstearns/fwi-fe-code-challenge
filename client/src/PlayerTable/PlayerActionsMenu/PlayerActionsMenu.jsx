@@ -11,9 +11,9 @@ const PlayerActionsMenu = ({ playerId }) => {
   //these will always be the same for every player in this case
   const availableActions = [PLAYER_ACTIONS.Edit, PLAYER_ACTIONS.Delete];
 
-  const actions = availableActions.map(({ title, onClick }) => ({
+  const actions = availableActions.map(({ title, action }) => ({
     title,
-    onClick: () => dispatch(onClick(playerId)),
+    onClick: () => dispatch(action(playerId)),
   }));
 
   return <ActionsMenu actions={actions} />;
