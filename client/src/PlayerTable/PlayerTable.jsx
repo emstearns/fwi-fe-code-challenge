@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPlayers, getPlayers } from '../appState/playersSlice';
-import './PlayerTable.scss';
+
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
+import { fetchPlayers, getPlayers } from '../appState/playersSlice';
+import './PlayerTable.scss';
 
 const PlayerTable = () => {
   const dispatch = useDispatch();

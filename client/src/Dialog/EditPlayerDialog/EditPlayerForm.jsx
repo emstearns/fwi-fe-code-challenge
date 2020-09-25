@@ -1,16 +1,13 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
-import { useDispatch } from 'react-redux';
-import { DialogActions } from '@material-ui/core';
-import { InputAdornment, MenuItem } from '@material-ui/core';
+import { DialogActions, InputAdornment, MenuItem } from '@material-ui/core';
 
+import { Button, FormFieldInput } from '../../common';
 import { COUNTRIES } from '../../constants';
-import playerValidationSchema from '../../utils/validation/playerValidationSchema';
-import FormFieldInput from '../../common/FormFieldInput/FormFieldInput';
-import { useSelector } from 'react-redux';
+import { playerValidationSchema } from '../../utils/validation';
 import { getPlayerById, editPlayer } from '../../appState/playersSlice';
-import Button from '../../common/Button/Button';
 
 const EditPlayerForm = ({ onClose, playerId }) => {
   const dispatch = useDispatch();

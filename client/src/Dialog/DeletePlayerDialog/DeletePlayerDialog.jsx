@@ -2,7 +2,7 @@ import React from 'react';
 import { DialogActions } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
-import Button from '../../common/Button/Button';
+import { Button } from '../../common';
 import DialogContent from '../DialogContent';
 import { deletePlayer } from '../../appState/playersSlice';
 import { closeDialog } from '../../appState/dialogSlice';

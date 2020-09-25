@@ -2,12 +2,11 @@ import React, { useMemo } from 'react';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import { DialogActions, InputAdornment, MenuItem } from '@material-ui/core';
-import { Button } from '../../common/Button/Button';
 
-import { addPlayer } from '../../appState/playersSlice';
+import { Button, FormFieldInput } from '../../common/';
 import { COUNTRIES } from '../../constants';
-import playerValidationSchema from '../../utils/validation/playerValidationSchema';
-import FormFieldInput from '../../common/FormFieldInput/FormFieldInput';
+import { playerValidationSchema } from '../../utils/validation';
+import { addPlayer } from '../../appState/playersSlice';
 
 const AddPlayerForm = ({ onClose }) => {
   const dispatch = useDispatch();

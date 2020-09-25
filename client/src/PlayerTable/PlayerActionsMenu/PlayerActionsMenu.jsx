@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
-import ActionsMenu from '../../common/ActionsMenu/ActionsMenu';
+import { ActionsMenu } from '../../common/';
 import { PLAYER_ACTIONS } from './playerActions';
 
 const PlayerActionsMenu = ({ playerId }) => {

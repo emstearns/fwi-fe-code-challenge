@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import AddIcon from '@material-ui/icons/Add';
 
-import { Button } from '../common/Button/Button';
+import { Button } from '../common/';
 import { ReactComponent as CloudColor } from './cloud-color.svg';
 import { ReactComponent as CloudEffects } from './cloud-effects.svg';
 import { openDialog } from '../appState/dialogSlice';

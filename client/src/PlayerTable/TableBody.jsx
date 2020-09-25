@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Flags from 'react-world-flags';
 
-import Avatar from '../Avatar';
+import { Avatar } from '../common/';
 import PlayerActionsMenu from './PlayerActionsMenu/PlayerActionsMenu';
 import { COUNTRIES } from '../constants';
 
