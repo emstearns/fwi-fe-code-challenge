@@ -15,9 +15,9 @@ const AddPlayerForm = ({ onClose }) => {
 
   const initialValues = {
     name: '',
-    winnings: null,
+    winnings: '',
     country: '',
-    imageUrl: null,
+    imageUrl: '',
   };
 
   const onSubmit = async (values) => {
