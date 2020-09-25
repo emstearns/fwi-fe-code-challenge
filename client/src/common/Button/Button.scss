@@ -1,0 +1,58 @@
+@import 'variables';
+
+button.button {
+  background-color: $metal;
+  border: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.15;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+
+  &:active {
+    background-color: darken($metal, 10%);
+  }
+
+  &:hover,
+  &focus {
+    background-color: darken($metal, 5%);
+  }
+
+  &.primary {
+    color: $pearl;
+    background-color: $alpine;
+
+    &:active {
+      background-color: darken($alpine, 10%);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: darken($alpine, 5%);
+    }
+  }
+
+  &.error {
+    color: $pearl;
+    background-color: $merlot;
+
+    &:active {
+      background-color: darken($merlot, 10%);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: darken($merlot, 5%);
+    }
+  }
+
+  .button-icon {
+    vertical-align: middle;
+    font-size: 0.75rem;
+    margin-right: 0.125rem;
+  }
+}

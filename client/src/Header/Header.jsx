@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { openDialog } from '../appState/dialogSlice';
-import './Header.scss';
+import AddIcon from '@material-ui/icons/Add';
 
-import { Button } from '@material-ui/core';
+import { Button } from '../common/Button/Button';
 import { ReactComponent as CloudColor } from './cloud-color.svg';
 import { ReactComponent as CloudEffects } from './cloud-effects.svg';
+import { openDialog } from '../appState/dialogSlice';
+import './Header.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -26,13 +27,9 @@ const Header = () => {
         <h1 className="header__title">FWI Poker Challenge</h1>
       </div>
       <div className="header__right">
-        <Button
-          className="add-player-button"
-          aria-label="Add Player"
-          variant="outlined"
-          onClick={openAddPlayerDialog}
-        >
-          + Add Player
+        <Button id="add-player-button" onClick={openAddPlayerDialog}>
+          <AddIcon className="button-icon" aria-hidden="true" />
+          Add Player
         </Button>
       </div>
     </header>

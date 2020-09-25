@@ -1,10 +1,11 @@
 import React from 'react';
-import { DialogActions, Button } from '@material-ui/core';
+import { DialogActions } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
+import Button from '../../common/Button/Button';
+import DialogContent from '../DialogContent';
 import { deletePlayer } from '../../appState/playersSlice';
 import { closeDialog } from '../../appState/dialogSlice';
-import DialogContent from '../DialogContent';
 
 const DeletePlayerDialog = (props) => {
   const dispatch = useDispatch();
@@ -24,12 +25,7 @@ const DeletePlayerDialog = (props) => {
         <Button variant="outlined" onClick={handleCloseDialog}>
           Cancel
         </Button>
-        <Button
-          variant="contained"
-          disableElevation
-          color="primary"
-          onClick={handleDeletePlayer}
-        >
+        <Button buttonType="error" onClick={handleDeletePlayer}>
           Delete
         </Button>
       </DialogActions>

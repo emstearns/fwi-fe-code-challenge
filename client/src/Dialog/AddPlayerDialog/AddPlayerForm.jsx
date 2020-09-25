@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Button, DialogActions } from '@material-ui/core';
-import { InputAdornment, MenuItem } from '@material-ui/core';
+import { DialogActions, InputAdornment, MenuItem } from '@material-ui/core';
+import { Button } from '../../common/Button/Button';
 
 import { addPlayer } from '../../appState/playersSlice';
 import { COUNTRIES } from '../../constants';
@@ -96,17 +96,11 @@ const AddPlayerForm = ({ onClose }) => {
             </div>
           </div>
           <DialogActions className="dialog__footer">
-            <Button variant="outlined" onClick={handleClose}>
+            <Button type="button" variant="outlined" onClick={handleClose}>
               Cancel
             </Button>
-            <Button
-              disabled={isSubmitting}
-              type="submit"
-              variant="contained"
-              disableElevation
-              color="primary"
-            >
-              Add
+            <Button disabled={isSubmitting} buttonType="primary" type="submit">
+              {isSubmitting ? 'Adding...' : 'Add'}
             </Button>
           </DialogActions>
         </Form>

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Field, Form } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Button, DialogActions } from '@material-ui/core';
+import { DialogActions } from '@material-ui/core';
 import { InputAdornment, MenuItem } from '@material-ui/core';
 
 import { COUNTRIES } from '../../constants';
@@ -10,6 +10,7 @@ import playerValidationSchema from '../../utils/validation/playerValidationSchem
 import FormFieldInput from '../../common/FormFieldInput/FormFieldInput';
 import { useSelector } from 'react-redux';
 import { getPlayerById, editPlayer } from '../../appState/playersSlice';
+import Button from '../../common/Button/Button';
 
 const EditPlayerForm = ({ onClose, playerId }) => {
   const dispatch = useDispatch();
@@ -100,17 +101,11 @@ const EditPlayerForm = ({ onClose, playerId }) => {
             </div>
           </div>
           <DialogActions className="dialog__footer">
-            <Button variant="outlined" onClick={handleClose}>
+            <Button type="button" onClick={handleClose}>
               Cancel
             </Button>
-            <Button
-              disabled={isSubmitting}
-              type="submit"
-              variant="contained"
-              disableElevation
-              color="primary"
-            >
-              Save
+            <Button disabled={isSubmitting} type="submit" buttonType="primary">
+              {isSubmitting ? 'Saving...' : 'Save'}
             </Button>
           </DialogActions>
         </Form>
