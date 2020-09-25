@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Flags from 'react-world-flags';
 
 import Avatar from '../Avatar';
+import PlayerActionsMenu from './PlayerActionsMenu/PlayerActionsMenu';
 import { COUNTRIES } from '../constants';
 
 const TableBody = ({ players }) => {
@@ -34,6 +35,9 @@ const TableBody = ({ players }) => {
                 </Avatar>
                 {country}
               </div>
+            </td>
+            <td role="gridcell" className="table__actions">
+              <PlayerActionsMenu playerId={id} />
             </td>
           </tr>
         ))}
