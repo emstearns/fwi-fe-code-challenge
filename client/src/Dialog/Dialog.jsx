@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dialog as DialogWrapper } from '@material-ui/core/';
+
 import { closeDialog } from '../appState/dialogSlice';
 import AddPlayerDialog from './AddPlayerDialog/AddPlayerDialog';
 import './Dialog.scss';
@@ -19,15 +20,11 @@ const Dialog = () => {
     return null;
   }
 
-  const DialogContent = DIALOG_TYPES[dialogType];
+  const DialogInnerContent = DIALOG_TYPES[dialogType];
 
   return (
     <DialogWrapper open={visible} onClose={handleClose}>
-      <DialogContent
-        onClose={handleClose}
-        dispatch={dispatch}
-        {...dialogProps}
-      />
+      <DialogInnerContent onClose={handleClose} {...dialogProps} />
     </DialogWrapper>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Formik, Field, Form } from 'formik';
+import { useDispatch } from 'react-redux';
 import { Button, DialogActions } from '@material-ui/core';
 import { InputAdornment, MenuItem } from '@material-ui/core';
 
@@ -8,14 +9,16 @@ import { COUNTRIES } from '../../constants';
 import playerValidationSchema from '../../utils/validation/playerValidationSchema';
 import FormFieldInput from '../../common/FormFieldInput/FormFieldInput';
 
-const AddPlayerForm = ({ dispatch, onClose }) => {
+const AddPlayerForm = ({ onClose }) => {
+  const dispatch = useDispatch();
+  const handleClose = () => dispatch(onClose());
+
   const initialValues = {
     name: '',
     winnings: null,
     country: '',
     imageUrl: null,
   };
-  const handleClose = () => dispatch(onClose());
 
   const onSubmit = async (values) => {
     const data = values;
