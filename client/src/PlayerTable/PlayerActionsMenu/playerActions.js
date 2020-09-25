@@ -1,7 +1,13 @@
+import { openDialog } from '../../appState/dialogSlice';
+
 export const PLAYER_ACTIONS = {
   Edit: {
     title: 'Edit',
-    onClick: (playerId) => console.log(`Edit ${playerId}`),
+    onClick: (playerId) =>
+      openDialog({
+        type: 'EditPlayerDialog',
+        props: { playerId },
+      }),
   },
   Delete: {
     title: 'Delete',

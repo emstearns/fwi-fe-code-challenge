@@ -4,9 +4,10 @@ import { Dialog as DialogWrapper } from '@material-ui/core/';
 
 import { closeDialog } from '../appState/dialogSlice';
 import AddPlayerDialog from './AddPlayerDialog/AddPlayerDialog';
+import EditPlayerDialog from './EditPlayerDialog/EditPlayerDialog';
 import './Dialog.scss';
 
-const DIALOG_TYPES = { AddPlayerDialog };
+const DIALOG_TYPES = { AddPlayerDialog, EditPlayerDialog };
 
 const Dialog = () => {
   const dispatch = useDispatch();

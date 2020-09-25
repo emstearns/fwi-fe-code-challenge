@@ -10,6 +10,21 @@ const playersAdapter = createEntityAdapter({
   selectId: (player) => player.id,
 });
 
+export const editPlayer = createAsyncThunk('editPlayer', async (playerData) => {
+  const response = await fetch(
+    `http://localhost:3001/players/${playerData.id}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(playerData),
+    }
+  );
+  const data = await response.json();
+  return data;
+});
+
 export const fetchPlayers = createAsyncThunk('fetchPlayers', async () => {
   const response = await fetch('http://localhost:3001/players', {
     headers: {
@@ -55,6 +70,12 @@ const playersSlice = createSlice({
     [fetchPlayers.rejected]: (state) => {
       state.loadStatus = LOAD_STATUSES.Error;
       state.error = 'Unable to retrieve players. Please try again.';
+    },
+    [editPlayer.fulfilled]: (state, { payload }) => {
+      playersAdapter.upsertOne(state, payload);
+    },
+    [editPlayer.rejected]: (state, error) => {
+      state.error = 'Unable to update player. Please try again.';
     },
   },
 });
