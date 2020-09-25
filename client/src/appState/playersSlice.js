@@ -66,6 +66,7 @@ const playersSlice = createSlice({
   extraReducers: {
     [addPlayer.fulfilled]: (state, { payload }) => {
       playersAdapter.upsertOne(state, payload);
+      state.error = null;
     },
     [addPlayer.rejected]: (state) => {
       state.error = 'Failed to add player. Please try again.';
@@ -76,6 +77,7 @@ const playersSlice = createSlice({
     [fetchPlayers.fulfilled]: (state, { payload }) => {
       state.loadStatus = LOAD_STATUSES.Success;
       playersAdapter.upsertMany(state, payload.players);
+      state.error = null;
     },
     [fetchPlayers.rejected]: (state) => {
       state.loadStatus = LOAD_STATUSES.Error;
@@ -83,12 +85,14 @@ const playersSlice = createSlice({
     },
     [editPlayer.fulfilled]: (state, { payload }) => {
       playersAdapter.upsertOne(state, payload);
+      state.error = null;
     },
     [editPlayer.rejected]: (state) => {
       state.error = 'Unable to update player. Please try again.';
     },
     [deletePlayer.fulfilled]: (state, { payload }) => {
       playersAdapter.removeOne(state, payload);
+      state.error = null;
     },
     [deletePlayer.rejected]: (state) => {
       state.error = 'Unable to delete player. Please try again.';
