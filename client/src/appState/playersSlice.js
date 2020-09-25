@@ -25,6 +25,16 @@ export const editPlayer = createAsyncThunk('editPlayer', async (playerData) => {
   return data;
 });
 
+export const deletePlayer = createAsyncThunk(
+  'deletePlayer',
+  async (playerId) => {
+    await fetch(`http://localhost:3001/players/${playerId}`, {
+      method: 'DELETE',
+    });
+    return playerId;
+  }
+);
+
 export const fetchPlayers = createAsyncThunk('fetchPlayers', async () => {
   const response = await fetch('http://localhost:3001/players', {
     headers: {
@@ -74,8 +84,14 @@ const playersSlice = createSlice({
     [editPlayer.fulfilled]: (state, { payload }) => {
       playersAdapter.upsertOne(state, payload);
     },
-    [editPlayer.rejected]: (state, error) => {
+    [editPlayer.rejected]: (state) => {
       state.error = 'Unable to update player. Please try again.';
+    },
+    [deletePlayer.fulfilled]: (state, { payload }) => {
+      playersAdapter.removeOne(state, payload);
+    },
+    [deletePlayer.rejected]: (state) => {
+      state.error = 'Unable to delete player. Please try again.';
     },
   },
 });

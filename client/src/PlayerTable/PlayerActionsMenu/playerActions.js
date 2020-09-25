@@ -11,6 +11,10 @@ export const PLAYER_ACTIONS = {
   },
   Delete: {
     title: 'Delete',
-    onClick: (playerId) => console.log(`Delete ${playerId}`),
+    onClick: (playerId) =>
+      openDialog({
+        type: 'DeletePlayerDialog',
+        props: { playerId },
+      }),
   },
 };
