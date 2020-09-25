@@ -12,6 +12,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 
   &__title {
     color: $snow;
@@ -50,6 +51,14 @@
   }
 }
 
-.add-player-button {
-  margin-right: 1rem;
+#add-player-button {
+  background-color: $moss;
+  font-size: 0.75rem;
+  &:hover,
+  &:focus {
+    background-color: darken($moss, 5%);
+  }
+  &:active {
+    background-color: darken($moss, 10%);
+  }
 }

@@ -30,11 +30,19 @@ $header-height: 2.5rem;
     transition: background-color 0.15s;
 
     &:hover {
-      background-color: $pearl;
+      background-color: $fog;
     }
 
     &:not(:last-child) {
       border-bottom: 1px solid $pearl;
+    }
+
+    &:nth-of-type(even) {
+      background-color: $pearl;
+
+      &:hover {
+        background-color: darken($fog, 5%);
+      }
     }
   }
 
